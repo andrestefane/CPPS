@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 20:35:11 by astefane          #+#    #+#             */
-/*   Updated: 2025/11/30 21:26:15 by astefane         ###   ########.fr       */
+/*   Updated: 2025/12/01 12:07:49 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ bool isEmpty(const std::string &s)
     return (s.empty());
 }
 
-bool soloDigitos(const std::string &s)
+bool digits(const std::string &s)
 {
     if (s.empty())
-        return false;
+        return (false);
 
     for (size_t i = 0; i < s.length(); i++)
     {
         if (!std::isdigit(s[i]))
-            return false;
+            return (false);
     }
-    return true;
+    return (true);
 }
 
 int main()
@@ -66,7 +66,7 @@ int main()
 
             std::cout << "Enter phone number: ";
             std::getline(std::cin, input);
-            if (!soloDigitos(input))
+            if (!digits(input))
             {
                 std::cout << "Only positive numbers." << std::endl;
                 continue;

@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 21:10:40 by astefane          #+#    #+#             */
-/*   Updated: 2025/11/30 21:14:53 by astefane         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:19:50 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ PhoneList::PhoneList() : index(0), total(0) {}
 std::string PhoneList::truncate(const std::string &str) const
 {
 	if (str.length() > 10)
-		return str.substr(0, 9) + ".";
-	return str;
+		return (str.substr(0, 9) + ".");
+	return (str);
 }
 
 void PhoneList::addContact(const Contact &c)
@@ -49,11 +49,11 @@ void PhoneList::displayContacts() const
 Contact PhoneList::getContact(int idx) const
 {
 	if (idx >= 0 && idx < total)
-		return contacts[idx];
-	return Contact();
+		return (contacts[idx]);
+	return( Contact());
 }
 
 int PhoneList::getTotal() const
 {
-	return total;
+	return (total);
 }
