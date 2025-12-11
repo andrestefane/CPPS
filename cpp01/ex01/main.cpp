@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 22:07:25 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/11 19:06:15 by astefane         ###   ########.fr       */
+/*   Created: 2025/12/09 22:16:36 by astefane          #+#    #+#             */
+/*   Updated: 2025/12/11 19:33:37 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name)
-{
-}
+Zombie* zombieHorde(int n, std::string name);
 
-Zombie::~Zombie()
+int main()
 {
-	std::cout << this->name << " has been destroyed." << std::endl;
-}
+    std::cout << " Insert number to create the horde: ";
+    int 	number;
+    Zombie*	horde;
 
-void Zombie::announce(void)
-{
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    number = 0;
+    if (!(std::cin >> number))
+	{
+		std::cout << "Is not a number try again" << '\n';
+		return 1;
+	}
+	horde = zombieHorde(number, "Andrei");
+	for (int i = 0; i < number; i++)
+    	horde[i].announce();
+
+	delete[] horde;
+    return (0);
 }
