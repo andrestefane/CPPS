@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 17:14:00 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/12 17:25:20 by astefane         ###   ########.fr       */
+/*   Created: 2025/12/12 17:56:53 by astefane          #+#    #+#             */
+/*   Updated: 2025/12/12 18:01:25 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#ifndef HUMANA_HPP
-# define HUMANA_HOO
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-class HumanA
+class HumanB
 {
-private:
-    std::string name;
-    Weapon& weapon;
-
-public:
-    HumanA(const std::string& n, Weapon& w);
-    ~HumanA();
-
-    void attack() const;
+    private:
+        std::string name;
+        Weapon* weapon;
+    public:
+        HumanB(const std::string& n);
+        ~HumanB();
+        void setWeapon(Weapon& w);
+        void attack() const;
 };
 
 #endif
