@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 18:04:41 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/15 20:37:42 by astefane         ###   ########.fr       */
+/*   Updated: 2025/12/20 17:38:13 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ bool is_empty(const std::string &s)
 int main() {
     std::string line, PJ1, PJ2, WeaponA, WeaponB;
 
-    // Declaramos punteros antes del if para que existan en todo el main
     Weapon* clubA = NULL;
     HumanA* bob1 = NULL;
-
     Weapon* clubB = NULL;
     HumanB* bob2 = NULL;
-
     std::cout << "Insert 'A' to start with humanA: " << std::endl;
     std::getline(std::cin, line);
     if (is_empty(line))
