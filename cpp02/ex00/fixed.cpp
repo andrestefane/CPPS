@@ -6,30 +6,11 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:17:32 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/26 18:18:32 by astefane         ###   ########.fr       */
+/*   Updated: 2025/12/29 14:21:03 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fixed.hpp"
-# include <cmath>
-
-
-fixed::fixed() : _rawBits()
-{
-	std::cout << "Default constructor calle" << '\n';
-}
-
-fixed::fixed(const int n)
-{
-    std::cout << "Int constructor called" << '\n';
-    _rawBits = n << _fractionalBits;
-}
-
-fixed::fixed(const float f)
-{
-    std::cout << "Float constructor called" << '\n';
-    _rawBits = roundf(f * (1 << _fractionalBits));
-}
 
 fixed::fixed(const fixed &other)
 {

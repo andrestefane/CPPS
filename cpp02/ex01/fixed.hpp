@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:29:18 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/26 18:18:29 by astefane         ###   ########.fr       */
+/*   Updated: 2025/12/29 14:29:36 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ class fixed
         float   toFloat(void) const;
 		int		toInt(void)	const;
 
-	std::ostream &operator<<(std::ostream& out, const Fixed &value);
-
 };
+
+std::ostream& operator<<(std::ostream& out, const fixed& value);
+
 
 #endif
