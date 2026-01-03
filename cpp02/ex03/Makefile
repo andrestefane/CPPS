@@ -5,14 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/01/03 09:23:59 by astefane          #+#    #+#              #
-#    Updated: 2026/01/03 09:24:01 by astefane         ###   ########.fr        #
+#    Created: 2026/01/03 09:24:23 by astefane          #+#    #+#              #
+#    Updated: 2026/01/03 09:25:10 by astefane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = \
 		main.cpp \
 		fixed.cpp \
+		bsp.cpp \
+		Point.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
