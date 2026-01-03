@@ -6,13 +6,13 @@
 #    By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/03 09:24:07 by astefane          #+#    #+#              #
-#    Updated: 2026/01/03 09:24:08 by astefane         ###   ########.fr        #
+#    Updated: 2026/01/03 14:07:51 by astefane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = \
 		main.cpp \
-		fixed.cpp \
+		fixed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

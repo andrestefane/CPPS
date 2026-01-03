@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 17:29:18 by astefane          #+#    #+#             */
-/*   Updated: 2025/12/26 17:26:13 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/03 14:02:21 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class fixed
     public:
         fixed();
         fixed(const fixed &other);
-        fixed & operator=(const fixed &other);
+        fixed &operator=(const fixed &other);
         ~fixed();
 
         int		getRawBits(void) const;
