@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 12:57:13 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:57:14 by astefane         ###   ########.fr       */
+/*   Created: 2026/01/05 18:38:07 by astefane          #+#    #+#             */
+/*   Updated: 2026/01/05 18:41:53 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "ClapTrap.hpp"
 
-# include <iostream>
-# include <string>
-
-class WrongAnimal
+int main()
 {
-    protected:
-        std::string type;
-    
-    public:
-        WrongAnimal();
-        ~WrongAnimal();
-    
-        std::string getType() const;
-        void makeSound() const;
-};
+    ClapTrap a("Andrei");
 
-#endif
+    a.attack("enemy");
+    a.takeDamage(5);
+    a.beRepaired(3);
+    a.attack("enemy");
+    a.takeDamage(20);
+    a.attack("enemy");
+
+    return (0);
+}

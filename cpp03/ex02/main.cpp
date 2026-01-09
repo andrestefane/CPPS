@@ -5,36 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 12:56:56 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:56:57 by astefane         ###   ########.fr       */
+/*   Created: 2026/01/05 18:38:07 by astefane          #+#    #+#             */
+/*   Updated: 2026/01/07 13:11:48 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* wrong = new WrongCat();
+    std::cout << "===== CLAPTRAP =====" << std::endl;
+    ClapTrap clap("Clappy");
+    clap.attack("Target");
+    clap.takeDamage(5);
+    clap.beRepaired(3);
 
-    std::cout << j->getType() << std::endl;
-    std::cout << i->getType() << std::endl;
-    j->makeSound(); // Dog sound
-    i->makeSound(); // Cat sound
-    meta->makeSound(); // Generic Animal
+    std::cout << "\n===== SCAVTRAP =====" << std::endl;
+    ScavTrap scav("Scavy");
+    scav.attack("Target");
+    scav.guardGate();
 
-    std::cout << wrong->getType() << std::endl;
-    wrong->makeSound();
-    
-    delete meta;
-    delete j;
-    delete i;
-    delete wrong;
+    std::cout << "\n===== FRAGTRAP =====" << std::endl;
+    FragTrap frag("Fraggy");
+    frag.attack("Target");
+    frag.highFivesGuys();
 
+    std::cout << "\n===== END OF MAIN =====" << std::endl;
     return (0);
 }

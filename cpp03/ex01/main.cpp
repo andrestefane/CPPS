@@ -5,36 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 12:56:56 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:56:57 by astefane         ###   ########.fr       */
+/*   Created: 2026/01/05 18:38:07 by astefane          #+#    #+#             */
+/*   Updated: 2026/01/07 13:11:48 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* wrong = new WrongCat();
+    std::cout << "CLAPTRAP TEST" << std::endl;
 
-    std::cout << j->getType() << std::endl;
-    std::cout << i->getType() << std::endl;
-    j->makeSound(); // Dog sound
-    i->makeSound(); // Cat sound
-    meta->makeSound(); // Generic Animal
+    ClapTrap clap("Clappy");
 
-    std::cout << wrong->getType() << std::endl;
-    wrong->makeSound();
-    
-    delete meta;
-    delete j;
-    delete i;
-    delete wrong;
+    clap.attack("Dummy");
+    clap.takeDamage(3);
+    clap.beRepaired(2);
+    clap.takeDamage(20);
+    clap.attack("Dummy");
+    clap.beRepaired(5);
+
+    std::cout << "SCAVTRAP TEST" << std::endl;
+
+    ScavTrap scav("Scravy");
+
+    scav.attack("Dummy");
+    scav.takeDamage(30);
+    scav.beRepaired(10);
+    scav.guardGate();
+
+    scav.attack("Dummy");
+
+    scav.attack("Dummy");
+    scav.beRepaired(5);
 
     return (0);
 }

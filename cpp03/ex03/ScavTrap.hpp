@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 12:57:13 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:57:14 by astefane         ###   ########.fr       */
+/*   Created: 2026/01/07 11:43:14 by astefane          #+#    #+#             */
+/*   Updated: 2026/01/07 11:58:53 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+# include "ClapTrap.hpp"
 
-# include <iostream>
-# include <string>
-
-class WrongAnimal
+class ScavTrap :virtual public ClapTrap
 {
-    protected:
-        std::string type;
-    
     public:
-        WrongAnimal();
-        ~WrongAnimal();
-    
-        std::string getType() const;
-        void makeSound() const;
+        ScavTrap(const std::string& name);
+        ~ScavTrap();
+        void	attack(const std::string& target);
+		void	guardGate();
 };
 
 #endif

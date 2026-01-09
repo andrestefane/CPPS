@@ -5,34 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/01/09 12:57:01 by astefane          #+#    #+#              #
-#    Updated: 2026/01/09 12:57:04 by astefane         ###   ########.fr        #
+#    Created: 2026/01/05 18:37:30 by astefane          #+#    #+#              #
+#    Updated: 2026/01/05 18:40:59 by astefane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 SRCS = \
 		main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
+		ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CC = c++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-NAME = animals
+NAME = ClapTrap
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

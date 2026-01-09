@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/09 12:57:13 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:57:14 by astefane         ###   ########.fr       */
+/*   Created: 2026/01/07 12:51:04 by astefane          #+#    #+#             */
+/*   Updated: 2026/01/09 12:54:50 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+# include "ClapTrap.hpp"
 
-# include <iostream>
-# include <string>
 
-class WrongAnimal
+class FragTrap : virtual public ClapTrap
 {
-    protected:
-        std::string type;
-    
     public:
-        WrongAnimal();
-        ~WrongAnimal();
-    
-        std::string getType() const;
-        void makeSound() const;
+		FragTrap(const std::string& name);
+		~FragTrap();
+		void	highFivesGuys(void);
 };
 
 #endif
