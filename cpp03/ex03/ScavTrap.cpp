@@ -14,10 +14,10 @@
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-    _hitPoints = 100;
+    _hitPoints = 10;
     _energyPoints = 50;
-    _attackDamage = 20;
-    std::cout << "ScavTrap " << _name << " constructed" << std::endl;
+    _attackDamage = 10;
+    std::cout << "ScavTrap " << name << " constructed" << std::endl;
 }
 
 ScavTrap::~ScavTrap()

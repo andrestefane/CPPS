@@ -6,7 +6,7 @@
 #    By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 18:37:30 by astefane          #+#    #+#              #
-#    Updated: 2026/01/07 13:17:15 by astefane         ###   ########.fr        #
+#    Updated: 2026/01/09 14:51:01 by astefane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRCS = \
 		main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		DiamondTrap.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -23,7 +24,7 @@ CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 all: $(NAME)
 

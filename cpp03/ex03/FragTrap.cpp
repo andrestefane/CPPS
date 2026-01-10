@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 12:55:36 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/07 13:00:26 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:13:02 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
     _hitPoints = 100;
-    _energyPoints = 100;
+    _energyPoints = 50;
     _attackDamage = 30;
-    std::cout << "FragTrap " << _name << " constructed" << std::endl;
+    std::cout << "FragTrap " << name << " constructed" << std::endl;
 }
 
 FragTrap::~FragTrap()

@@ -6,31 +6,35 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:38:07 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/07 13:11:48 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:11:18 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    std::cout << "===== CLAPTRAP =====" << std::endl;
-    ClapTrap clap("Clappy");
-    clap.attack("Target");
-    clap.takeDamage(5);
-    clap.beRepaired(3);
-
-    std::cout << "\n===== SCAVTRAP =====" << std::endl;
-    ScavTrap scav("Scavy");
-    scav.attack("Target");
-    scav.guardGate();
-
-    std::cout << "\n===== FRAGTRAP =====" << std::endl;
-    FragTrap frag("Fraggy");
-    frag.attack("Target");
-    frag.highFivesGuys();
-
-    std::cout << "\n===== END OF MAIN =====" << std::endl;
+    DiamondTrap d("Guardian");
+    std::cout << "\n";
+    d.showStats();
+    d.whoAmI();
+    std::cout << "\n";
+    std::cout << "\n";
+    d.attack("Bandit");
+    DiamondTrap copy(d);
+    std::cout << "\n";
+    copy.showStats();
+    copy.whoAmI();
+    std::cout << "\n";
+    std::cout << "\n";
+    copy.attack("Copy enemy");
+    DiamondTrap assign;
+    assign = d;
+    std::cout << "\n";
+    assign.showStats();
+    assign.whoAmI();
+    std::cout << "\n";
+    std::cout << "\n";
+    assign.attack("Assigned enemy");
     return (0);
 }

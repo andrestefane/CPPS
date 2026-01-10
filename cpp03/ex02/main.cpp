@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 18:38:07 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/07 13:11:48 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:04:42 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 
 int main()
 {
-    std::cout << "===== CLAPTRAP =====" << std::endl;
+    std::cout << "CLAPTRAP" << std::endl;
     ClapTrap clap("Clappy");
     clap.attack("Target");
     clap.takeDamage(5);
     clap.beRepaired(3);
 
-    std::cout << "\n===== SCAVTRAP =====" << std::endl;
+    std::cout << "\nSCAVTRAP" << std::endl;
     ScavTrap scav("Scavy");
     scav.attack("Target");
     scav.guardGate();
 
-    std::cout << "\n===== FRAGTRAP =====" << std::endl;
+    std::cout << "\nFRAGTRAP" << std::endl;
     FragTrap frag("Fraggy");
     frag.attack("Target");
     frag.highFivesGuys();
 
-    std::cout << "\n===== END OF MAIN =====" << std::endl;
     return (0);
 }
