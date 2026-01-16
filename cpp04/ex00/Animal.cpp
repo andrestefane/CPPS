@@ -17,6 +17,22 @@ Animal::Animal() : type ("Animal")
     std::cout << "Animal Constructor called" << std::endl;
 }
 
+Animal::Animal(const Animal &other)
+{
+    std::cout << "Copy Animal constructor called" << std::endl;
+    *this = other;
+}
+
+Animal &Animal::operator=(const Animal &other)
+{
+   if (this != &other)
+    {
+        Animal::operator=(other);
+        type = other.type;
+    }
+    return (*this);
+}
+
 Animal::~Animal()
 {
     std::cout << "Animal Destructor called" << std::endl;

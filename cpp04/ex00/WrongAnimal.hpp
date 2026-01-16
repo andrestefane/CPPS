@@ -23,6 +23,8 @@ class WrongAnimal
     
     public:
         WrongAnimal();
+        WrongAnimal::WrongAnimal(const WrongAnimal &other);
+        WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other);
         ~WrongAnimal();
     
         std::string getType() const;

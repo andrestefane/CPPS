@@ -18,6 +18,23 @@ Dog::Dog()
     std::cout << "Dog constructor called" << std::endl;
 }
 
+Dog::Dog(const Dog &other)
+{
+    std::cout << "Copy Dog constructor called" << std::endl;
+    *this = other;
+}
+
+Dog &Dog::operator=(const Dog &other)
+{
+   if (this != &other)
+    {
+        Dog::operator=(other);
+        type = other.type;
+    }
+    return (*this);
+}
+
+
 Dog::~Dog()
 {
     std::cout << "Dog destructor called" << std::endl;

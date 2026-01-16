@@ -18,6 +18,23 @@ WrongCat::WrongCat()
     std::cout << "WrongCat constructor called" << std::endl;
 }
 
+WrongCat::WrongCat(const WrongCat &other)
+{
+    std::cout << "Copy WrongCat constructor called" << std::endl;
+    *this = other;
+}
+
+WrongCat &WrongCat::operator=(const WrongCat &other)
+{
+   if (this != &other)
+    {
+        WrongCat::operator=(other);
+        type = other.type;
+    }
+    return (*this);
+}
+
+
 WrongCat::~WrongCat()
 {
     std::cout << "WrongCat destructor called" << std::endl;

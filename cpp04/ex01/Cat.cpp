@@ -12,11 +12,17 @@
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
     type = "Cat";
     brain = new Brain();
     std::cout << "Cat constructor called" << std::endl;
+}
+
+Cat::Cat(const Cat &other) : Animal(other)
+{
+    brain = new Brain(*other.brain); 
+    std::cout << "Copy Cat constructor called" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& other)
@@ -33,16 +39,16 @@ Cat& Cat::operator=(const Cat& other)
 
 Cat::~Cat()
 {
-    delete brain;
+    delete (brain);
     std::cout << "Cat destructor called" << std::endl;
 }
 
 void    Cat::makeSound() const
 {
-    std::cout << "Guau" << std::endl;
+    std::cout << "Miau" << std::endl;
 }
 
-Brain* Cat::getbBrain() const
+const Brain* Cat::getbBrain() const
 {
     return (brain);
 }

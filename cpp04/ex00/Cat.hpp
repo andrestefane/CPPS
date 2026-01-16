@@ -17,9 +17,12 @@
 class Cat : public Animal
 {
     public:
-    Cat();
-    ~Cat();
-    void    makeSound() const ;
+        Cat();
+        Cat::Cat(const Cat &other);
+        Cat &Cat::operator=(const Cat &other);
+        ~Cat();
+
+        void    makeSound() const;
 };
 
 #endif

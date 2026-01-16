@@ -21,10 +21,12 @@ class Cat : public Animal
         Brain* brain;
     public:
         Cat();
+        Cat &Cat::operator=(const Cat &other);
+        Cat::Cat(const Cat &other);
         ~Cat();
-        Cat&    operator=(const Cat& other);
+
         void    makeSound() const;
-        Brain* getbBrain() const;
+        const Brain* getbBrain() const;
     };
 
 #endif

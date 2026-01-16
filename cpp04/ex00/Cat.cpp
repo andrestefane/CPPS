@@ -18,6 +18,22 @@ Cat::Cat()
     std::cout << "Cat constructor called" << std::endl;
 }
 
+Cat::Cat(const Cat &other)
+{
+    std::cout << "Copy Cat constructor called" << std::endl;
+    *this = other;
+}
+
+Cat &Cat::operator=(const Cat &other)
+{
+   if (this != &other)
+    {
+        Cat::operator=(other);
+        type = other.type;
+    }
+    return (*this);
+}
+
 Cat::~Cat()
 {
     std::cout << "Cat destructor called" << std::endl;
