@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:58:29 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/16 17:30:07 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:05:50 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "Brain.hpp"
 # include "AAnimal.hpp"
 
-class Dog : public Animal, public AAnimal
+class Dog : public AAnimal
 {
     private:
         Brain* brain;
@@ -26,7 +26,7 @@ class Dog : public Animal, public AAnimal
         Dog(const Dog &other);
         ~Dog();
 
-        void    makeSound() const override;
+        void    makeSound() const;
         const Brain* getBrain() const;
     };
 

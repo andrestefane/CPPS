@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:14:38 by andres            #+#    #+#             */
-/*   Updated: 2026/01/16 17:21:15 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:57:51 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class AAnimal
         AAnimal& operator=(const AAnimal& other);
 		virtual ~AAnimal();
 
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 		std::string		getType() const;
 };
 

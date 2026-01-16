@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:58:24 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:58:26 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:40:44 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Dog::~Dog()
 
 void    Dog::makeSound() const
 {
-    std::cout << "Miau" << std::endl;
+    std::cout << "Guau" << std::endl;
 }
 
 const Brain* Dog::getBrain() const
