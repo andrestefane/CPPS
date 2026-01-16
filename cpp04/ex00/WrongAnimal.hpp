@@ -22,13 +22,13 @@ class WrongAnimal
         std::string type;
     
     public:
-        WrongAnimal();
-        WrongAnimal::WrongAnimal(const WrongAnimal &other);
-        WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other);
-        ~WrongAnimal();
-    
-        std::string getType() const;
-        void makeSound() const;
+	    WrongAnimal();
+	    WrongAnimal(const WrongAnimal& other);
+	    WrongAnimal& operator=(const WrongAnimal& other);
+	    ~WrongAnimal();
+	
+	    void makeSound() const;
+	    std::string getType() const;
 };
 
 #endif

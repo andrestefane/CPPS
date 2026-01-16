@@ -18,12 +18,12 @@
 class WrongCat : public WrongAnimal
 {
     public:
-        WrongCat();
-        WrongCat::WrongCat(const WrongCat &other);
-        WrongCat &WrongCat::operator=(const WrongCat &other);
-        ~WrongCat();
-    
-        void makeSound() const;
+	    WrongCat();
+	    WrongCat(const WrongCat& other);
+	    WrongCat& operator=(const WrongCat& other);
+	    ~WrongCat();
+	
+	    void makeSound() const;
 };
 
 #endif

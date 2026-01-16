@@ -18,10 +18,9 @@ WrongCat::WrongCat()
     std::cout << "WrongCat constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &other)
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other) 
 {
     std::cout << "Copy WrongCat constructor called" << std::endl;
-    *this = other;
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &other)
