@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 15:42:40 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/19 16:47:49 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:59:17 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class MateriaSource : public IMateriaSource
 		MateriaSource(const MateriaSource& other);
 		MateriaSource& operator=(const MateriaSource& other);
 		virtual	~MateriaSource();
-		virtual	void	learMateria(AMateria* m);
+		virtual	void	learnMateria(AMateria* m);
 		virtual	AMateria* createMateria(std::string const& type);
 };
 

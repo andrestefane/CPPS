@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:48:03 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/19 19:06:28 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:56:37 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,32 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 
-int	main()
+int main()
 {
-	IMateriaSource*	src;
-	ICharacter*		Carlos; // me
-	AMateria*		tmp;
-	ICharacter*		Juaquin; //bob
-	AMateria*		saved;
-	Character		Alice("Alice");
-	Character		enemy("enemy");
+    IMateriaSource* src;
+    ICharacter*     Carlos;
+    ICharacter*     Juaquin;
+    AMateria*      tmp;
 
-	src = new MateriaSource();
-	Carlos = new Character("Carlos");
-	src->learMateria(new Ice());
-	src->learMateria(new Cure());
-	tmp = src->createMateria("Ice");
-	Carlos->equip(tmp);
-	tmp = src->createMateria("Cure");
-	Carlos->equip(tmp);
-	Juaquin = new Character("Juaquin");
-	Carlos->use(0, *Juaquin);
-	Carlos->use(1, *Juaquin);
+    src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 
-	delete (Juaquin);
-	delete (Carlos);
-	delete (src);
+    Carlos = new Character("Carlos");
 
-	
+    tmp = src->createMateria("ice");
+    Carlos->equip(tmp);
+    tmp = src->createMateria("cure");
+    Carlos->equip(tmp);
+
+    Juaquin = new Character("Juaquin");
+
+    Carlos->use(0, *Juaquin);
+    Carlos->use(1, *Juaquin);
+
+    delete Juaquin;
+    delete Carlos;
+    delete src;
+
+    return 0;
 }

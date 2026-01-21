@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:48:17 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/19 17:35:13 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:58:50 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ MateriaSource::~MateriaSource()
 		delete (_storage[i]);
 }
 
-void	MateriaSource::learMateria(AMateria* m)
+void	MateriaSource::learnMateria(AMateria* m)
 {
 	if (!m)
 		return;

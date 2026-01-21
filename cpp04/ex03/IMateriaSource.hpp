@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 15:39:12 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/19 15:41:28 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:58:37 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class IMateriaSource
 {
 	public:
 		virtual	~IMateriaSource() {};
-		virtual	void	learMateria(AMateria*) = 0;
+		virtual	void	learnMateria(AMateria*) = 0;
 		virtual AMateria* createMateria(std::string const& type) = 0;
 };
 

@@ -6,7 +6,7 @@
 #    By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/19 18:46:50 by astefane          #+#    #+#              #
-#    Updated: 2026/01/19 18:47:50 by astefane         ###   ########.fr        #
+#    Updated: 2026/01/21 14:50:38 by astefane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-NAME = animals
+NAME = Spells
 
 all: $(NAME)
 

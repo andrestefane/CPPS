@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 12:39:32 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/19 15:36:19 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 13:27:50 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	Character::equip(AMateria* m)
 		return;
 	for(int i = 0; i < 4; i++)
 	{
-		if (_inventory[i] = NULL)
+		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
 			return;
