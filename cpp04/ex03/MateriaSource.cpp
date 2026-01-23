@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:48:17 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/21 12:58:50 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:54:15 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	MateriaSource::learnMateria(AMateria* m)
 		if (_storage[i] == NULL)
 		{
 			_storage[i] = m->clone();
+			delete m;
 			return;
 		}
 	}

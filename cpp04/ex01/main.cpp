@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 12:58:34 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/09 12:58:40 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:47:34 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int main()
 {
-    std::cout << "===== ANIMAL TEST =====" << std::endl;
 
     Animal* animals[6];
 
@@ -47,11 +46,8 @@ int main()
     std::cout << "Cat1 Brain: " << cat1.getBrain() << std::endl;
     std::cout << "Cat2 Brain: " << cat2.getBrain() << std::endl;
 
-
     for (int i = 0; i < 6; i++)
         delete animals[i];
-
-    std::cout << "\n===== WRONG ANIMAL TEST =====" << std::endl;
 
     WrongAnimal* wrong = new WrongCat();
     wrong->makeSound();
