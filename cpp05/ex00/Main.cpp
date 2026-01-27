@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:55:58 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/26 18:41:32 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:04:43 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main()
 			std::cout << a << std::endl;
 			a.incrementGrade();
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
@@ -85,7 +85,7 @@ int main()
 		{
 			Bureaucrat b("Carlos", 151);
 		}
-		catch(std::exception& e)
+		catch(const std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
@@ -97,7 +97,7 @@ int main()
 		{
 			a = new Bureaucrat(line, lvl);	
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
@@ -119,7 +119,7 @@ int main()
 		{
 			a->sumGrade(number);
 		}
-		catch (std::exception& e)
+		catch (const std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
@@ -154,8 +154,8 @@ int main()
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
 	}
-	std::cout << "Grade of:" << a->getName() << " is " << a->getGrade() << std::endl;
-	std::cout << "Grade of:" << b->getName() << " is " << b->getGrade() << std::endl;
+	std::cout << "Grade of:" << a->getName() << " now is " << a->getGrade() << std::endl;
+	std::cout << "Grade of:" << b->getName() << " now is " << b->getGrade() << std::endl;
 	delete a;
 	delete b;
 	return (0);
