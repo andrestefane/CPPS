@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:55:58 by astefane          #+#    #+#             */
-/*   Updated: 2026/01/27 17:04:43 by astefane         ###   ########.fr       */
+/*   Updated: 2026/01/28 15:26:41 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,23 @@ int main()
 	int			lvl = 0;
 	int			lvl2 = 0;
 	
-	Bureaucrat* a = NULL;
-	Bureaucrat* b = NULL;
 	std::cout << "Insert name of first bureaucrat" << std::endl;
 	std::getline(std::cin, line);
 	std::cout << "Insert lvl of first bureaucrat" << std::endl;
 	std::getline(std::cin, strlvl);
 	lvl = atoi(strlvl.c_str());
-	if (isdigit(lvl))
-	{
-		std::cout << "Expected a number" << std::endl;
-		return (0);
-	}
 	std::cout << "Insert name of second bureaucrat" << std::endl;
 	std::getline(std::cin, line2);
 	std::cout << "Insert lvl of second bureaucrat" << std::endl;
 	std::getline(std::cin, strlvl2);
 	lvl2 = atoi(strlvl2.c_str());
-	if (isdigit(lvl2))
+	if (isdigit(lvl2) || isdigit(lvl))
 	{
 		std::cout << "Expected a number" << std::endl;
 		return (0);
 	}
+	
+
 	
 	if (isEmpty(line) && isEmpty(line2))
 	{
@@ -91,11 +86,23 @@ int main()
 		}
 		return (0);
 	}
+
+
+
+
+
+	
 	else
 	{
+		if (lvl >= 1 || lvl2 >= 1)
+		{
+			lvl = 2;
+			lvl2 = 2;
+		}
+		Bureaucrat a(line, lvl);
 		try
 		{
-			a = new Bureaucrat(line, lvl);	
+			Bureaucrat a(line, lvl);	
 		}
 		catch (const std::exception& e)
 		{
@@ -105,19 +112,17 @@ int main()
 		std::getline(std::cin, strnumber);
 		if (isEmpty(strnumber))
 		{
-			delete a;
 			return (0);
 		}
 		number = atoi(strnumber.c_str());
 		if (isdigit(number))
 		{
 			std::cout << "Expected a number" << std::endl;
-			delete a;
 			return (0);
 		}
 		try
 		{
-			a->sumGrade(number);
+			a.sumGrade(number);
 		}
 		catch (const std::exception& e)
 		{
@@ -127,37 +132,34 @@ int main()
 
 
 
-
+			Bureaucrat b(line2, lvl2);
 		try
 		{
-			b = new Bureaucrat(line2, lvl2);
+			Bureaucrat b(line2, lvl2);
 		}
 		catch (std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
-		std::cout << "How much want it to increment second bureaucrat?" << std::endl;
+		std::cout << "How much want it to decrement second bureaucrat?" << std::endl;
 		std::getline(std::cin, strnumber);
 		number = atoi(strnumber.c_str());
 		if (isdigit(number))
 		{
 			std::cout << "Expected a number" << std::endl;
-			delete b;
 			return (0);
 		}
 		try
 		{
-			b->restGrade(number);
+			b.restGrade(number);
 		}
 		catch (std::exception& e)
 		{
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
+		std::cout << "Grade of:" << a.getName() << " now is " << a.getGrade() << std::endl;
+		std::cout << "Grade of:" << b.getName() << " now is " << b.getGrade() << std::endl;
 	}
-	std::cout << "Grade of:" << a->getName() << " now is " << a->getGrade() << std::endl;
-	std::cout << "Grade of:" << b->getName() << " now is " << b->getGrade() << std::endl;
-	delete a;
-	delete b;
 	return (0);
 }
 
