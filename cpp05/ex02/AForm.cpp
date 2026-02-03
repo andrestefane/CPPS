@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:30:27 by astefane          #+#    #+#             */
-/*   Updated: 2026/02/02 14:51:40 by astefane         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:05:31 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ const char* AForm::FormNotSignedExpection::what() const throw()
 std::ostream& operator<<(std::ostream& out, const AForm& f)
 {
 	out << f.getName()
-		<< ", Signed" << f.isSigned()
+		<< ", Signed " << f.isSigned()
 		<< ", grade to sign: " << f.getGradeToSign()
 		<< ", grade to execute: " << f.getGradeToExecute();
 	return (out);

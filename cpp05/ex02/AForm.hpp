@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 19:17:38 by astefane          #+#    #+#             */
-/*   Updated: 2026/02/02 18:22:21 by astefane         ###   ########.fr       */
+/*   Updated: 2026/02/03 16:00:19 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define AFORM_HPP
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <ctime>
 
 class Bureaucrat;
 
