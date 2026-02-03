@@ -6,7 +6,7 @@
 /*   By: astefane <astefane@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 14:55:58 by astefane          #+#    #+#             */
-/*   Updated: 2026/02/03 18:08:17 by astefane         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:21:05 by astefane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ int main()
 	dude.executeForm(tree);
 	dude.executeForm(robot);
 	dude.executeForm(pardon);
+	std::cout << std::endl;
 
+	std::cout << tree << std::endl;
+	std::cout << robot << std::endl;
+	std::cout << pardon << std::endl;
 	return (0);
 }
