@@ -123,7 +123,7 @@ double toDouble(const std::string &input, type _type)
 	if (_type == CHAR)
 		return (static_cast<double>(input[0]));
 	if (_type == INT)
-		return (static_cast<double>(std::atoi(input.c_str())));
+		return (static_cast<double>(std::strtol(input.c_str(), NULL, 10)));
 	if (_type == FLOAT)
 		return (static_cast<double>(std::atof(input.c_str())));
 	return(std::atof(input.c_str()));
