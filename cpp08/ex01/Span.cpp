@@ -42,7 +42,7 @@ int Span::shortestSpan() const
 	int diff = 0;
 	size_t i = 1;
 	shortest = sorted[1] - sorted[0];
-	while (i < sorted.size())
+	while (i < sorted.size() - 1)
 	{
 		diff = sorted[i + 1] - sorted[i];
 		if (diff < shortest)
@@ -52,3 +52,11 @@ int Span::shortestSpan() const
 	return (shortest);
 }
 
+int Span::longestSpan() const
+{
+	if (_numbers.size() < 2)
+		throw std::runtime_error("Not enough numbers");
+	int min = *std::min_element(_numbers.begin(), _numbers.end());
+	int max = *std::max_element(_numbers.begin(), _numbers.end());
+	return (max - min);
+}
