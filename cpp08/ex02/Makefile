@@ -1,6 +1,5 @@
 
 SRCS = \
-		Span.cpp \
 		main.cpp 
 
 OBJS = $(SRCS:.cpp=.o)
