@@ -12,7 +12,7 @@ void testFind(T &container, int value, const std::string &containerName)
 	{
 		typename T::iterator it = easyfind(container, value);
 		std::cout << "Found -> " << *it << std::endl;
-	} 
+	}
 	catch (const std::exception &e)
 	{
 		std::cout << "Exception -> " << e.what() << std::endl;
@@ -81,7 +81,7 @@ int main(void)
     dups.push_back(5);
     dups.push_back(5);
     dups.push_back(5);
-    typename std::vector<int>::iterator itvec = easyfind(dups, 5);
+	std::vector<int>::iterator itvec = easyfind(dups, 5);
     std::cout << "[dupes ] First occurrence index: "
               << std::distance(dups.begin(), itvec) << std::endl;
     return (0);
