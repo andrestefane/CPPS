@@ -145,7 +145,7 @@ void BitcoinExchange::processInput(const std::string& inputFile) const
 			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
-		if (value < 0)
+		if (value <= 0)
 		{
 			std::cerr << "Error: not a positive number." << std::endl;
 			continue;

@@ -2,6 +2,7 @@
 #include <stack>
 #include <string>
 #include <iostream>
+#include <limits.h>
 #include <sstream>
 #include <stdexcept>
 
@@ -16,4 +17,5 @@ class RPN
 		RPN &operator=(const RPN &other);
 		~RPN();
 		int evaluate(const std::string &expression);
+		
 };
