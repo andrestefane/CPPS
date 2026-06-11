@@ -24,7 +24,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(SCRIPT)
 
 script:
 	@echo "Downloading test script..."
