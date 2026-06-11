@@ -58,7 +58,8 @@ void PmergeMe::run()
 	std::cout << "Time to process a range of " << _deq.size()
 		<< " elements with std::deque :" << timeDeq << " us" << std::endl;
 }
-
+// hi = position of paired major in chain
+// val = value to insert
 void PmergeMe::binaryInsertVector(std::vector<int> &chain, int val, int hi)
 {
 	int lo = 0;
@@ -99,24 +100,27 @@ void PmergeMe::sortDeque()
 
 void PmergeMe::parseInput(int argc, char **argv)
 {
-	int i = 1;
-	size_t j = 0;
-	long val = 0;
-	while (i < argc)
+	for (int i = 1; i < argc; i++)
 	{
 		std::string token(argv[i]);
-		while (j < token.size())
-		{
-			if (!isdigit(token[j]))
-				throw std::runtime_error("Error");
-			j++;
-		}
-		val = std::atol(token.c_str());
-		if (val <= 0 || val > 2147483647)
+		char *end = NULL;
+		long val;
+
+		if (token.empty())
 			throw std::runtime_error("Error");
-		_vec.push_back(static_cast<int>(val));
-		_deq.push_back(static_cast<int>(val));
-		i++;
+		for (size_t j = 0; j < token.size(); j++)
+		{
+			if (!std::isdigit(static_cast<unsigned char>(token[j])))
+				throw std::runtime_error("Error");
+		}
+		val = std::strtol(token.c_str(), &end, 10);
+		if (*end != '\0' || val <= 0 || val > INT_MAX)
+			throw std::runtime_error("Error");
+		int num = static_cast<int>(val);
+		if (std::find(_vec.begin(), _vec.end(), num) != _vec.end())
+			throw std::runtime_error("Error");
+		_vec.push_back(num);
+		_deq.push_back(num);
 	}
 	if (_vec.empty())
 		throw std::runtime_error("Error");
@@ -124,196 +128,147 @@ void PmergeMe::parseInput(int argc, char **argv)
 
 std::vector<int> PmergeMe::jacobsthal(int n)
 {
-	std::vector<int> seq;
-
-	seq.push_back(0);
-	seq.push_back(1);
-	while (true)
+	std::vector<int> order;
+	int prev = 1;
+	int curr = 3;
+	while (prev < n)
 	{
-		int next = seq[seq.size() - 1] + 2 * seq[seq.size() - 2];
-		if (next >= n)
-			break;
-		seq.push_back(next);
+		int end = curr;
+		if (end > n)
+			end = n;
+		// insert from end down (descending within each group)
+		for (int i = end; i > prev; i--)
+			order.push_back(i - 1);
+		int next = curr + 2 * prev;
+		prev = curr;
+		curr = next;
 	}
-	return (seq);
+	// Returns insertion order indices
+	return (order);
 }
 
 void PmergeMe::mergeInsertVector(std::vector<int> &array)
 {
-	int size = array.size();
+	int size = static_cast<int>(array.size());
 	if (size <= 1)
 		return ;
-	// form pairs and separate biggers in 'a' and minors in 'b'
-	std::vector<int> a;
-	std::vector<int> b;
+
+	// pair.first = mayor
+	// pair.second = minor
+	// straggler = leftover element
+	std::vector< std::pair<int, int> > pairs;
 	bool hasStraggler = (size % 2 != 0);
 	int straggler = 0;
 	int limit = size;
-	size_t i = 0;
+
 	if (hasStraggler)
 	{
 		straggler = array[size - 1];
 		limit = size - 1;
 	}
-	while (i < (size_t)limit)
+	for (int i = 0; i < limit; i += 2)
 	{
 		if (array[i] > array[i + 1])
-		{
-			a.push_back(array[i]);
-			b.push_back(array[i + 1]);
-		}
+			pairs.push_back(std::make_pair(array[i], array[i + 1]));
 		else
-		{
-			a.push_back(array[i + 1]);
-			b.push_back(array[i]);
-		}
-		i += 2;
+			pairs.push_back(std::make_pair(array[i + 1], array[i]));
 	}
-	// recursivity with biggers
-	mergeInsertVector(a);
-	// Construct the principal chain with b[0] at the start
+
+	// to order the biggers doing recursivity
+	std::vector<int> bigs;
+	for (size_t i = 0; i < pairs.size(); i++)
+		bigs.push_back(pairs[i].first);
+	mergeInsertVector(bigs);
+
 	std::vector<int> chain;
-	chain.push_back(b[0]);
-	i = 0;
-	while (i < a.size())
+	std::vector<int> pend;
+	for (size_t i = 0; i < bigs.size(); i++)
 	{
-		chain.push_back(a[i]);
-		i++;
-	}
-	// Insert the rest of b with orden jacobsthal
-	std::vector<int> jseq = jacobsthal(b.size());
-	std::vector<bool> inserted(b.size(), false);
-	inserted[0] = true;
-	size_t j = 2;
-	while (j < jseq.size())
-	{
-		int from = jseq[j];
-		int to = jseq[j - 1];
-		int k = from;
-		while(k > to)
+		for (size_t j = 0; j < pairs.size(); j++)
 		{
-			if (k < (int)b.size() && !inserted[k])
+			// looking the minor of each pair
+			// finding the pair
+			if (pairs[j].first == bigs[i])
 			{
-				int hi = 0;
-				int m = (int)b.size() - 1;
-				while (m >= 0)
-				{
-					if (chain[m] == a[k])
-					{
-						hi = m;
-						break;
-					}
-					m--;
-				}
-				binaryInsertVector(chain, b[k], hi + 1);
-				inserted[k] = true;
+				chain.push_back(pairs[j].first);
+				pend.push_back(pairs[j].second);
+				break ;
 			}
-			k--;
 		}
-		j++;
 	}
-	// insert the 'b' were left outsite of Jacobsthal range
-	size_t k = 1;
-	while (k < b.size())
+	// insert pend at start
+	chain.insert(chain.begin(), pend[0]);
+	// insert the rest of numbers with jacobsthal
+	std::vector<int> order = jacobsthal(static_cast<int>(pend.size()));
+	for (size_t i = 0; i < order.size(); i++)
 	{
-		if (!inserted[k])
-			binaryInsertVector(chain, b[k], (int)chain.size());
-		k++;
+		int index = order[i];
+		// max index limit at biggers numbers
+		std::vector<int>::iterator bound = std::find(chain.begin(), chain.end(), bigs[index]);
+		int hi = static_cast<int>(bound - chain.begin());
+		// insert pend[index] before bigs[index]
+		binaryInsertVector(chain, pend[index], hi);
 	}
-	// insert the rest if exist
+	// insert the oleftover
 	if (hasStraggler)
-		binaryInsertVector(chain, straggler, (int)chain.size());
+		binaryInsertVector(chain, straggler, static_cast<int>(chain.size()));
 	array = chain;
 }
 
 void PmergeMe::mergeInsertDeque(std::deque<int> &array)
 {
-	int size = array.size();
+	int size = static_cast<int>(array.size());
 	if (size <= 1)
 		return ;
 
-	std::deque<int> a;
-	std::deque<int> b;
-	bool	hasStraggler = (size % 2 != 0);
-	int		straggler = 0;
-	int		limit = size;
-	size_t	i = 0;
+	std::deque< std::pair<int, int> > pairs;
+	bool hasStraggler = (size % 2 != 0);
+	int straggler = 0;
+	int limit = size;
 
 	if (hasStraggler)
 	{
 		straggler = array[size - 1];
 		limit = size - 1;
 	}
-	while (i < (size_t)limit)
+	for (int i = 0; i < limit; i += 2)
 	{
 		if (array[i] > array[i + 1])
-		{
-			a.push_back(array[i]);
-			b.push_back(array[i + 1]);
-		}
+			pairs.push_back(std::make_pair(array[i], array[i + 1]));
 		else
-		{
-			a.push_back(array[i + 1]);
-			b.push_back(array[i]);
-		}
-		i += 2;
+			pairs.push_back(std::make_pair(array[i + 1], array[i]));
 	}
 
-	mergeInsertDeque(a);
+	std::deque<int> bigs;
+	for (size_t i = 0; i < pairs.size(); i++)
+		bigs.push_back(pairs[i].first);
+	mergeInsertDeque(bigs);
 
 	std::deque<int> chain;
-	chain.push_back(b[0]);
-	i = 0;
-	while (i < a.size())
+	std::deque<int> pend;
+	for (size_t i = 0; i < bigs.size(); i++)
 	{
-		chain.push_back(a[i]);
-		i++;
-	}
-
-	std::vector<int>	jseq = jacobsthal(b.size());
-	std::vector<bool>	inserted(b.size(), false);
-	inserted[0] = true;
-
-	size_t j = 2;
-	while (j < jseq.size())
-	{
-		int from = jseq[j];
-		int to   = jseq[j - 1];
-		int k    = from;
-		while (k > to)
+		for (size_t j = 0; j < pairs.size(); j++)
 		{
-			if (k < (int)b.size() && !inserted[k])
+			if (pairs[j].first == bigs[i])
 			{
-				int hi = 0;
-				int m  = (int)chain.size() - 1;
-				while (m >= 0)
-				{
-					if (chain[m] == a[k])
-					{
-						hi = m;
-						break;
-					}
-					m--;
-				}
-				binaryInsertDeque(chain, b[k], hi + 1);
-				inserted[k] = true;
+				chain.push_back(pairs[j].first);
+				pend.push_back(pairs[j].second);
+				break ;
 			}
-			k--;
 		}
-		j++;
 	}
 
-	size_t k = 1;
-	while (k < b.size())
+	chain.insert(chain.begin(), pend[0]);
+	std::vector<int> order = jacobsthal(static_cast<int>(pend.size()));
+	for (size_t i = 0; i < order.size(); i++)
 	{
-		if (!inserted[k])
-			binaryInsertDeque(chain, b[k], (int)chain.size());
-		k++;
+		int index = order[i];
+		std::deque<int>::iterator bound = std::find(chain.begin(), chain.end(), bigs[index]);
+		int hi = static_cast<int>(bound - chain.begin());
+		binaryInsertDeque(chain, pend[index], hi);
 	}
-
 	if (hasStraggler)
-	{
-		binaryInsertDeque(chain, straggler, (int)chain.size());
-	}
+		binaryInsertDeque(chain, straggler, static_cast<int>(chain.size()));
 	array = chain;
 }

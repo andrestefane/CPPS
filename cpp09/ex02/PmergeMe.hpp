@@ -7,6 +7,10 @@
 #include <stdexcept>
 #include <ctime>
 #include <algorithm>
+#include <cstdlib>
+#include <climits>
+#include <cctype>
+#include <utility>
 
 class PmergeMe
 {

@@ -9,7 +9,9 @@ CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-NAME = RPN
+NAME =  PmergeMe
+SCRIPT = script.sh
+REPO_URL = https://raw.githubusercontent.com/andrestefane/CPPS/main/cpp09/ex02
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -24,6 +26,12 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
+script:
+	@echo "Downloading test script..."
+	@curl -o $(SCRIPT) $(REPO_URL)/$(SCRIPT)
+	@chmod +x $(SCRIPT)
+	@echo "Done! Run it with: ./$(SCRIPT)"
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re script
